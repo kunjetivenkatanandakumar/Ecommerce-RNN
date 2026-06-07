@@ -1,10 +1,20 @@
 import streamlit as st
 import numpy as np
 
+
+import os
 from tensorflow.keras.models import load_model
 from sklearn.preprocessing import MinMaxScaler
 
-model = load_model("sales_rnn_model.keras")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+MODEL_PATH = os.path.join(
+    BASE_DIR,
+    "sales_rnn_model.keras"
+)
+
+model = load_model(MODEL_PATH)
+
 
 st.title("E-Commerce Sales Forecast")
 
